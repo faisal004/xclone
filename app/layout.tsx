@@ -1,8 +1,10 @@
+'use client'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import Sidebar from './components/Sidebar'
-import Rightside from './components/Rightside'
+import Sidebar from '../components/Sidebar'
+import Rightside from '../components/Rightside'
+import { RecoilRoot } from 'recoil'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,11 +20,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="body container mx-auto">
-        <Sidebar />
-        {children}
-        <Rightside />
-      </body>
+      <RecoilRoot>
+        <body className="body container mx-auto">
+          <Sidebar />
+          {children}
+          <Rightside />
+        </body>
+      </RecoilRoot>
     </html>
   )
 }

@@ -3,7 +3,7 @@ import { FaTwitter } from 'react-icons/fa'
 import { AiFillHome, AiFillBell } from 'react-icons/ai'
 import { CgProfile } from 'react-icons/cg'
 import { BiLogOut } from 'react-icons/bi'
-
+import Link from 'next/link'
 interface MenuItemProps {
   icon: ReactNode
   text: string
@@ -24,8 +24,10 @@ const Sidebar: React.FC = () => {
       </div>
       <div className="flex flex-col mx-auto  ">
         <MenuItem icon={<AiFillHome />} text="Home" />
+        
         <MenuItem icon={<AiFillBell />} text="Notifications" />
-        <MenuItem icon={<CgProfile />} text="Profile" />
+        <Link href={"/Profile"}><MenuItem icon={<CgProfile />} text="Profile" /> </Link>
+        
         <MenuItem icon={<BiLogOut />} text="Logout" />
       </div>
       <div className="w-1/3 pt-2 flex flex-row p-2 items-start justify-start ">
