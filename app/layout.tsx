@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google'
 import Sidebar from '../components/Sidebar'
 import Rightside from '../components/Rightside'
 import { RecoilRoot } from 'recoil'
+import { NextAuthProvider } from './Providers'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,9 +23,12 @@ export default function RootLayout({
     <html lang="en">
       <RecoilRoot>
         <body className="body container mx-auto">
+          <NextAuthProvider>
+          
           <Sidebar />
           {children}
           <Rightside />
+          </NextAuthProvider>
         </body>
       </RecoilRoot>
     </html>
