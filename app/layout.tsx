@@ -7,6 +7,7 @@ import Rightside from '../components/Rightside'
 import { RecoilRoot } from 'recoil'
 import { NextAuthProvider } from './Providers'
 
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
   return (
     <html lang="en">
       <RecoilRoot>
