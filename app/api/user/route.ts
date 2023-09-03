@@ -7,7 +7,7 @@ export async function POST(request:NextRequest){
   try {
     await connectMongoDB()
     const reqBody=await request.json();
-    const {name,email}=reqBody;
+    const {name,email }=reqBody;
     const newUser =  new User({name,email})
     await newUser.save()
     console.log(newUser)
