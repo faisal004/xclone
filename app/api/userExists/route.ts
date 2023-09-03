@@ -7,11 +7,16 @@ export async function POST(request:NextRequest){
   try {
     
     const reqBody=await request.json();
-    const {name,email,image,password }=reqBody;
-    const newUser =  new User({name,email,image,password})
-    await newUser.save()
-    console.log(newUser)
-    return NextResponse.json({message:"Success"})
+    const {email }=reqBody;
+    
+    const user=await User.findOne({email})
+    console.log(user)
+  if(user !== null){
+    return NextResponse.json({message:"User Exists"})
+  }else{
+    return NextResponse.json({message:"You can create user"})
+  }
+   
   } catch (error:any) {
     return NextResponse.json({error:error.message})
   }

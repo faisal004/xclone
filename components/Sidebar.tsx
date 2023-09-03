@@ -22,7 +22,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ icon, text }) => (
 
 const Sidebar: React.FC = () => {
   const { data: session } = useSession()
-  console.log(session)
+ 
 
   const handleLogout = async () => {
     await signOut()

@@ -1,14 +1,16 @@
 import React, { FC } from 'react'
 import  {useSession} from "next-auth/react"
 import Image from 'next/image'
+import {CgProfile} from "react-icons/cg"
 
 const Tweetbox: FC = () => {
   const {data:session}=useSession()
   console.log(session?.user?.image)
   return (
     <div className="flex flex-row justify-between border-b-2 pb-2">
-      <div className='rounded-full p-2 m-2 '>
-      <Image className='rounded-full' src={session?.user?.image} alt="sd" height={50} width={50}></Image>
+      <div className='rounded-full p-2 m-2 text-2xl'>
+        {session?.user?.image ?(<Image className='rounded-full' src={session?.user?.image} alt="sd" height={50} width={50}></Image>):(<CgProfile className=""/>)}
+      
 
 
       </div>
