@@ -77,9 +77,9 @@ const Sidebar: React.FC = () => {
           </div>
         )}
       </div>
-      <div className="w-1/3 pt-2 flex flex-row p-2 items-start justify-start">
+      {/* <div className="w-1/3 pt-2 flex flex-row p-2 items-start justify-start">
         <button className="bg-[#2f6eb9] w-full rounded-2xl p-1">Tweet</button>
-      </div>
+      </div> */}
       {isModalOpen && <Loginmodal closeModal={closeModal} />}
     </div>
   )

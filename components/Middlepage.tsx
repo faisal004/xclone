@@ -11,7 +11,7 @@ import {  useSession } from 'next-auth/react'
 const Middlepage = () => {
   const [user, ] = useRecoilState(userIn);
   const { data,status } = useSession()
-  console.log(data)
+
 
  
   return (
