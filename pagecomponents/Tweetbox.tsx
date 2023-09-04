@@ -84,7 +84,7 @@ const Tweetbox: FC = () => {
           <div className="button flex items-end justify-end">
             <button
               type="submit"
-              className={`bg-[#2f6eb9] px-2 py-1 rounded-xl mx-4 ${
+              className={`bg-[#377ed4] px-2 py-1 rounded-xl mx-4 ${
                 tweet.trim() === '' ? 'opacity-50 cursor-not-allowed' : ''
               }`}
               disabled={tweet.trim() === ''}

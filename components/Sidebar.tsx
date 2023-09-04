@@ -51,7 +51,7 @@ const Sidebar: React.FC = () => {
           <MenuItem icon={<AiFillHome />} text="Home" />{' '}
         </Link>
 
-        <MenuItem icon={<AiFillBell />} text="Notifications" />
+        {/* <MenuItem icon={<AiFillBell />} text="Notifications" /> */}
         <Link href="/Profile">
           <MenuItem icon={<CgProfile />} text="Profile" />{' '}
         </Link>

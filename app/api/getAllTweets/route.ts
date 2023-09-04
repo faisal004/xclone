@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
         const allTweet = await Post.find({})
 
 
-        return NextResponse.json({ message: "Success", allTweet })
+        return NextResponse.json({ allTweet })
     } catch (error: any) {
         return NextResponse.json({ error: error.message })
     }
