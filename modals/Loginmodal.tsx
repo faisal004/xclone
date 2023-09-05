@@ -53,7 +53,7 @@ const Loginmodal: React.FC<LoginModalProps> = ({ closeModal }) => {
             Google
           </button>
         </div>
-        <div>OR</div>
+        {/* <div>OR</div>
         <form onSubmit={handleSubmit}>
           <div className="flex flex-col space-y-4 m-2 w-fit ">
             <input
@@ -81,7 +81,7 @@ const Loginmodal: React.FC<LoginModalProps> = ({ closeModal }) => {
               Register
             </button>
           </div>
-        </form>
+        </form> */}
       </div>
     </div>
   )

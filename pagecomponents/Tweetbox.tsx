@@ -2,6 +2,7 @@ import React, { FC, useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import { CgProfile } from 'react-icons/cg';
+import Link from 'next/link';
 
 const Tweetbox: FC = () => {
   const { data: session } = useSession();
@@ -27,10 +28,10 @@ const Tweetbox: FC = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        //tweet,userName,userEmail,userPhoto 
+       
         body: JSON.stringify({userEmail:email,userName:username,userPhoto:photo,tweet:tweet}), 
       });
-  const data= await response.json()
+  // const data= await response.json()
 
       if (response.ok) {
         console.log('Tweet posted successfully');
@@ -52,14 +53,19 @@ const Tweetbox: FC = () => {
   return (
     <div className="flex flex-row justify-between border-b-2 pb-2">
       <div className="rounded-full p-2 m-2 text-2xl">
+       
         {session?.user?.image ? (
-          <Image
+           <Link href={`/Profile/${session?.user?.email}`}>
+            <Image
             className="rounded-full"
             src={session?.user?.image}
             alt="sd"
             height={50}
             width={50}
           />
+        
+           </Link>
+         
         ) : (
           <CgProfile className="" />
         )}

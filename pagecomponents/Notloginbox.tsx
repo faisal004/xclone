@@ -28,7 +28,7 @@ const Notloginbox: FC = () => {
       <div className='mx-auto mt-10'>Welcome to Twitter Or X. Please login to continue</div>
       <div className='space-x-3'>
         <button className='bg-[#2f6eb9] px-3 py-1 rounded-xl' onClick={openModal}>Login</button>
-        <button className='bg-[#2f6eb9] px-3 py-1 rounded-xl ' onClick={openSignupModal}>Signup</button>
+        {/* <button className='bg-[#2f6eb9] px-3 py-1 rounded-xl ' onClick={openSignupModal}>Signup</button> */}
       </div>
 
      

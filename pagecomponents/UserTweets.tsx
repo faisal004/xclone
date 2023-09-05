@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
+interface UserTweetsProps {
+    userEmail: string; 
+  }
+
 interface Tweet {
   _id: string;
   userEmail: string;
@@ -30,21 +34,28 @@ function timeAgo(timestamp: string): string {
   }
 }
 
-const AllTweet: React.FC = () => {
+const UserTweets: React.FC<UserTweetsProps> = ({userEmail }) => {
   const [tweets, setTweets] = useState<Tweet[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/getAllTweets');
+        const response = await fetch('/api/getUserTweets', {
+            method: 'POST', 
+            headers: {
+              'Content-Type': 'application/json', 
+            },
+            body: JSON.stringify({ userEmail:userEmail }),
+          });
         if (!response.ok) {
           throw new Error('Failed to fetch tweets');
         }
         const data = await response.json();
+        console.log(data)
 
         if (data) {
-          const tweetsWithFormattedTime = data.allTweet.map((tweet: Tweet) => ({
+          const tweetsWithFormattedTime = data.userTweets.map((tweet: Tweet) => ({
             ...tweet,
             formattedCreatedAt: timeAgo(tweet.createdAt),
           }));
@@ -58,7 +69,7 @@ const AllTweet: React.FC = () => {
     };
 
     fetchData();
-    const pollInterval = 3000;
+    const pollInterval = 30000;
     const intervalId = setInterval(fetchData, pollInterval);
 
     return () => {
@@ -101,4 +112,4 @@ const AllTweet: React.FC = () => {
   );
 };
 
-export default AllTweet;
+export default UserTweets;

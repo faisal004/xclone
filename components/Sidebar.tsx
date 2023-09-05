@@ -22,6 +22,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ icon, text }) => (
 
 const Sidebar: React.FC = () => {
   const { data: session } = useSession()
+
  
 
   const handleLogout = async () => {
@@ -52,7 +53,7 @@ const Sidebar: React.FC = () => {
         </Link>
 
         {/* <MenuItem icon={<AiFillBell />} text="Notifications" /> */}
-        <Link href="/Profile">
+        <Link href={`/Profile/${session?.user?.email}`}>
           <MenuItem icon={<CgProfile />} text="Profile" />{' '}
         </Link>
         {session ? (
