@@ -3,9 +3,17 @@ import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import { CgProfile } from 'react-icons/cg';
 import Link from 'next/link';
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 const Tweetbox: FC = () => {
   const { data: session } = useSession();
+  const notify = () => {
+    
+
+    toast.success("Tweeted !", {
+      position: toast.POSITION.TOP_CENTER
+    });}
   const email = session?.user?.email;
   const username=session?.user?.name;
  
@@ -35,6 +43,7 @@ const Tweetbox: FC = () => {
 
       if (response.ok) {
         console.log('Tweet posted successfully');
+        notify()
        
       } else {
         console.error('Error posting tweet');
@@ -53,6 +62,7 @@ const Tweetbox: FC = () => {
   return (
     <div className="flex flex-row justify-between border-b-2 pb-2">
       <div className="rounded-full p-2 m-2 text-2xl">
+      <ToastContainer />
        
         {session?.user?.image ? (
            <Link href={`/Profile/${session?.user?.email}`}>
@@ -94,6 +104,7 @@ const Tweetbox: FC = () => {
                 tweet.trim() === '' ? 'opacity-50 cursor-not-allowed' : ''
               }`}
               disabled={tweet.trim() === ''}
+             
             >
               Post
             </button>
